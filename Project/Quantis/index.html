@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quantis — Accueil</title>
+
+  <link rel="stylesheet" href="css/home.css" />
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html" aria-label="Quantis (Accueil)">
+        <img class="brand__logo" src="assets/images/QuantisLogo.png" alt="Logo Quantis">
+        <span class="brand__name">Quantis</span>
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav__link active" href="index.html">Accueil</a>
+        <a class="nav__link" href="pages/dashboard.html">Dashboard</a>
+        <a class="nav__link" href="pages/historique.html">Historique</a>
+      </nav>
+
+      <div class="profile">
+        <button class="profile__btn" type="button" aria-haspopup="menu" aria-expanded="false">
+          <img class="profile__avatar" src="assets/images/User.png" alt="Photo de profil">
+          <span class="profile__label">Profil</span>
+          <span class="profile__chev" aria-hidden="true">▾</span>
+        </button>
+
+        <div class="profile__menu" role="menu" aria-label="Menu profil">
+          <a role="menuitem" href="pages/Login.html">Voir mon profil</a>
+          <a role="menuitem" href="pages/parametres.html">Paramètres</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <h1>Comprendre votre consommation,<br> décider plus vite.</h1>
+          <p>
+            Enregistrez vos consommations (électricité, gaz) et suivez leur évolution.
+            Détectez les dérives, anticipez les pics, agissez au bon moment.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#" aria-label="Ajouter une consommation">
+              + Ajouter une consommation
+            </a>
+            <a class="btn btn--ghost" href="pages/dashboard.html">Voir le dashboard</a>
+          </div>
+        </div>
+
+        <aside class="hero__preview" aria-label="Aperçu des consommations">
+          <div class="previewCard previewCard--elec">
+            <div class="previewCard__head">
+              <div>
+                <div class="previewCard__title">Électricité</div>
+                <div class="previewCard__value">132 kWh</div>
+              </div>
+              <span class="statusDot statusDot--orange" title="État: moyen" aria-label="État moyen"></span>
+            </div>
+
+            <div class="previewCard__meta">
+              <span class="previewTag">Semaine 12</span>
+              <span class="previewDelta previewDelta--up">+8% vs semaine dernière</span>
+            </div>
+
+            <div class="previewCard__foot">
+              <div class="previewStat">
+                <span class="previewStat__label">Dernière saisie</span>
+                <span class="previewStat__value">14/03</span>
+              </div>
+              <div class="previewStat">
+                <span class="previewStat__label">Objectif</span>
+                <span class="previewStat__value">120 kWh</span>
+              </div>
+            </div>
+
+            <svg class="spark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,34 14,30 28,28 42,22 56,19 70,14 84,10 100,6"></polyline>
+            </svg>
+          </div>
+
+          <div class="previewCard previewCard--gas">
+            <div class="previewCard__head">
+              <div>
+                <div class="previewCard__title">Gaz</div>
+                <div class="previewCard__value">68 kWh</div>
+              </div>
+              <span class="statusDot statusDot--green" title="État: bon" aria-label="État bon"></span>
+            </div>
+
+            <div class="previewCard__meta">
+              <span class="previewTag">Semaine 12</span>
+              <span class="previewDelta previewDelta--down">−3% vs moyenne</span>
+            </div>
+
+            <div class="previewCard__foot">
+              <div class="previewStat">
+                <span class="previewStat__label">Dernière saisie</span>
+                <span class="previewStat__value">13/03</span>
+              </div>
+              <div class="previewStat">
+                <span class="previewStat__label">Objectif</span>
+                <span class="previewStat__value">75 kWh</span>
+              </div>
+            </div>
+
+            <svg class="spark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,26 14,24 28,27 42,22 56,24 70,18 84,16 100,12"></polyline>
+            </svg>
+          </div>
+
+          <div class="previewHint">Exemples de données (prototype)</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Cards -->
+    <section class="features">
+      <div class="container">
+        <div class="sectionTitle">
+          <h2>Tout est pensé pour aller à l’essentiel</h2>
+          <p>Trois modules clés pour suivre, comprendre et optimiser.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">⚡</div>
+            <h3>Saisie rapide</h3>
+            <p>Ajoutez une consommation en quelques secondes (manuelle ou import).</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">📊</div>
+            <h3>Dashboard</h3>
+            <p>Visualisez vos tendances, comparez par période, repérez les pics.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">🔔</div>
+            <h3>Alertes & conseils</h3>
+            <p>Des indicateurs simples pour savoir quand agir, et comment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steps -->
+    <section class="steps">
+      <div class="container steps__inner">
+        <div class="steps__title">
+          <h2>Comment ça marche</h2>
+          <p>Un flux simple en 3 étapes.</p>
+        </div>
+
+        <ol class="stepList">
+          <li class="step">
+            <div class="step__num">1</div>
+            <div class="step__content">
+              <h3>Enregistrer</h3>
+              <p>Saisissez vos consommations (électricité, gaz) avec une date.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step__num">2</div>
+            <div class="step__content">
+              <h3>Visualiser</h3>
+              <p>Graphiques, tendances, comparaisons par semaine/mois/année.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step__num">3</div>
+            <div class="step__content">
+              <h3>Agir</h3>
+              <p>Recevez des signaux (bon/moyen/critique) et optimisez.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© Quantis — Prototype</span>
+      <span class="footer__sep">•</span>
+      <span>Accueil</span>
+    </div>
+  </footer>
+</body>
+</html>
