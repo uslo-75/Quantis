@@ -1,0 +1,183 @@
+<?php
+session_start();
+$isLogged = isset($_SESSION["user_id"]);
+?>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quantis — Accueil</title>
+
+  <link rel="stylesheet" href="css/shared/base.css" />
+  <link rel="stylesheet" href="css/shared/ui.css" />
+  <link rel="stylesheet" href="css/shared/header.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.php" aria-label="Quantis (Accueil)">
+        <img class="brand__logo" src="assets/images/QuantisLogo.png" alt="Logo Quantis">
+        <span class="brand__name">Quantis</span>
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav__link active" href="index.php">Accueil</a>
+        <a class="nav__link" href="pages/dashboard.php">Dashboard</a>
+        <a class="nav__link" href="pages/hist.php">Historique</a>
+      </nav>
+
+      <div class="profile">
+        <button class="profile__btn" type="button" aria-haspopup="menu" aria-expanded="false">
+          <img class="profile__avatar" src="assets/images/User.png" alt="Photo de profil">
+          <span class="profile__label">Profil</span>
+          <span class="profile__chev" aria-hidden="true">▾</span>
+        </button>
+
+        <div class="profile__menu" role="menu" aria-label="Menu profil">
+          <?php if ($isLogged): ?>
+            <a role="menuitem" href="pages/profil.php">Profil & Parametres</a>
+            <a role="menuitem" href="pages/dashboard.php">Mes Dashboards</a>
+            <a role="menuitem" href="logout.php">Déconnexion</a>
+          <?php else: ?>
+            <a role="menuitem" href="pages/Login.php">Connexion</a>
+            <a role="menuitem" href="pages/Register.php">Inscription</a>
+          <?php endif; ?>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <h1>Comprendre votre consommation,<br> décider plus vite.</h1>
+          <p>
+            Enregistrez vos consommations (électricité, gaz) et suivez leur évolution.
+            Détectez les dérives, anticipez les pics, agissez au bon moment.
+          </p>
+
+          <div class="hero__actions">
+            <?php if ($isLogged): ?>
+              <a class="btn btn--primary" href="pages/AddConsumption.php">
+                + Ajouter une consommation
+              </a>
+              <a class="btn btn--ghost" href="pages/dashboard.php">Voir le dashboard</a>
+            <?php else: ?>
+              <a class="btn btn--primary" href="pages/Register.php">
+                Commencer maintenant
+              </a>
+              <a class="btn btn--ghost" href="pages/Login.php">Se connecter</a>
+            <?php endif; ?>
+          </div>
+        </div>
+
+        <aside class="hero__preview" aria-label="Aperçu des consommations">
+          <div class="previewCard previewCard--elec">
+            <div class="previewCard__head">
+              <div>
+                <div class="previewCard__title">Électricité</div>
+                <div class="previewCard__value">132 kWh</div>
+              </div>
+              <span class="statusDot statusDot--orange"></span>
+            </div>
+
+            <div class="previewCard__meta">
+              <span class="previewTag">Semaine 12</span>
+              <span class="previewDelta previewDelta--up">+8% vs semaine dernière</span>
+            </div>
+
+
+            <div class="previewChart" aria-hidden="true">
+              <div class="previewBars">
+                <span class="previewBar" style="--h:78%"><span class="previewBar__cap"></span></span>
+                <span class="previewBar" style="--h:52%"><span class="previewBar__cap"></span></span>
+                <span class="previewBar" style="--h:38%"><span class="previewBar__cap"></span></span>
+                <span class="previewBar" style="--h:84%"><span class="previewBar__cap"></span></span>
+                <span class="previewBar" style="--h:66%"><span class="previewBar__cap"></span></span>
+                <span class="previewBar" style="--h:42%"><span class="previewBar__cap"></span></span>
+                <span class="previewBar" style="--h:48%"><span class="previewBar__cap"></span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="previewCard previewCard--gas">
+            <div class="previewCard__head">
+              <div>
+                <div class="previewCard__title">Gaz</div>
+                <div class="previewCard__value">68 kWh</div>
+              </div>
+              <span class="statusDot statusDot--green"></span>
+            </div>
+
+            <div class="previewCard__meta">
+              <span class="previewTag">Semaine 12</span>
+              <span class="previewDelta previewDelta--down">−3% vs moyenne</span>
+            </div>
+
+
+            <div class="previewChart" aria-hidden="true">
+              <div class="previewBars">
+                <span class="previewBar" style="--h:36%"><span class="previewBar__cap"></span></span>
+                <span class="previewBar" style="--h:28%"><span class="previewBar__cap"></span></span>
+                <span class="previewBar" style="--h:42%"><span class="previewBar__cap"></span></span>
+                <span class="previewBar" style="--h:22%"><span class="previewBar__cap"></span></span>
+                <span class="previewBar" style="--h:38%"><span class="previewBar__cap"></span></span>
+                <span class="previewBar" style="--h:30%"><span class="previewBar__cap"></span></span>
+                <span class="previewBar" style="--h:46%"><span class="previewBar__cap"></span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="previewHint">Exemples de données (prototype)</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="container">
+        <div class="sectionTitle">
+          <h2>Tout est pensé pour aller à l’essentiel</h2>
+          <p>Trois modules clés pour suivre, comprendre et optimiser.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__icon">⚡</div>
+            <h3>Saisie rapide</h3>
+            <p>Ajoutez une consommation en quelques secondes.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">📊</div>
+            <h3>Dashboard</h3>
+            <p>Visualisez vos tendances et comparez les périodes.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">🔔</div>
+            <h3>Alertes & conseils</h3>
+            <p>Agissez au bon moment avec des indicateurs simples.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© Quantis — Prototype</span>
+      <span class="footer__sep">•</span>
+      <span>Accueil</span>
+    </div>
+  </footer>
+
+</body>
+</html>
